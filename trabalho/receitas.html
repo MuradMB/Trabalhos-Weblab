@@ -1,13 +1,201 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projetos</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Receitas</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Receitas page extras ── */
+    .receitas-hero {
+      text-align: center;
+      padding: 60px 20px 30px;
+      color: var(--color-text-primary);
+    }
+
+    .receitas-hero h1 {
+      font-size: 2.2rem;
+      margin: 0 0 10px;
+      color: var(--color-accent);
+    }
+
+    .receitas-hero p {
+      color: var(--color-text-secondary);
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    /* filter tabs */
+    .receitas-filtros {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 20px 20px 10px;
+    }
+
+    .filtro-btn {
+      padding: 8px 22px;
+      border: 2px solid var(--color-accent);
+      border-radius: 30px;
+      background: transparent;
+      color: var(--color-accent);
+      font-family: Georgia, serif;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .filtro-btn.ativo,
+    .filtro-btn:hover {
+      background: var(--color-accent);
+      color: #000;
+    }
+
+    /* grid */
+    .receitas-grid {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px;
+      max-width: 1200px;
+      margin: 40px auto 60px;
+      padding: 0 20px;
+    }
+
+    /* card */
+    .receita-card {
+      flex: 1 1 320px;
+      max-width: 380px;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--color-surface-card);
+      border: 2px solid var(--color-border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .receita-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    .card-badge {
+      display: inline-block;
+      margin: 20px 20px 0;
+      padding: 4px 12px;
+      border: 1.5px solid var(--color-accent);
+      border-radius: 20px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      align-self: flex-start;
+    }
+
+    .card-body {
+      padding: 16px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      flex: 1;
+    }
+
+    .card-body h2 {
+      font-size: 1.35rem;
+      margin: 0;
+      color: var(--color-text-primary);
+    }
+
+    .card-body p.descricao {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* ingredientes / preparo accordion */
+    .accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .accordion-item summary {
+      list-style: none;
+      cursor: pointer;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+
+    .accordion-item summary::after {
+      content: '+';
+      font-size: 18px;
+      transition: transform 0.2s;
+    }
+
+    .accordion-item[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    .accordion-item ul,
+    .accordion-item ol {
+      margin: 8px 0 0 0;
+      padding-left: 18px;
+    }
+
+    .accordion-item li {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+
+    /* nav entre receitas */
+    .card-nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px 20px;
+      gap: 10px;
+    }
+
+    .card-nav a {
+      flex: 1;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 13px;
+      font-family: Georgia, serif;
+      color: var(--color-accent);
+      border: 2px solid var(--color-border);
+      border-radius: 8px;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .card-nav a:hover {
+      background: var(--color-accent);
+      color: #000;
+    }
+
+    /* anchor offset so navbar doesn't hide the card */
+    .receita-ancora {
+      scroll-margin-top: 80px;
+    }
+  </style>
 </head>
 <body>
-        <div id="loading">
+
+  <div id="loading">
     <div class="loading-spinner"></div>
     <p class="loading-texto">Carregando...</p>
   </div>
@@ -17,22 +205,130 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="sobre.html">Sobre</a></li>
-      <li><a href="#projetos">Projetos</a></li>
-      <li><a href="contato.html" >Contatos</a></li>
-      <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Alternar tema">
-  <span class="theme-toggle-icon">🌙</span>
-</button></li>
+      <li><a href="receitas.html">Projetos</a></li>
+      <li><a href="contato.html">Contatos</a></li>
+      <li>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Alternar tema">
+          <span class="theme-toggle-icon">🌙</span>
+        </button>
+      </li>
     </ul>
   </nav>
 
+  <!-- Hero -->
+  <section class="receitas-hero">
+    <h1>Receitas</h1>
+    <p>Sobremesas simples e deliciosas para fazer em casa</p>
+  </section>
+  <!-- Grid de receitas -->
+  <div class="receitas-grid" id="receitas-grid">
 
+    <!-- Receita 1 — Brownie -->
+    <article class="receita-card receita-ancora" id="brownie" data-categoria="chocolate">
+      <span class="card-badge">01 — Chocolate</span>
+      <div class="card-body">
+        <h2>Brownie</h2>
+        <p class="descricao">Uma receita simples de brownie fudgy, com casquinha crocante e interior bem molhadinho.</p>
+        <div class="accordion">
+          <details class="accordion-item">
+            <summary>Ingredientes</summary>
+            <ul>
+              <li>4 ovos</li>
+              <li>2 xícaras de açúcar</li>
+              <li>1 xícara de cacau em pó</li>
+              <li>2 xícaras de farinha de trigo</li>
+              <li>100 ml de óleo</li>
+            </ul>
+          </details>
+          <details class="accordion-item">
+            <summary>Modo de preparo</summary>
+            <ol>
+              <li>Misture os ovos com o açúcar até formar uma massa homogênea.</li>
+              <li>Adicione o cacau e o óleo, misturando bem até pegar consistência.</li>
+              <li>Incorpore a farinha com uma espátula, sem bater, até integrar por completo.</li>
+              <li>Unte a forma com óleo e despeje a massa.</li>
+              <li>Asse em forno pré-aquecido a 200 °C por 20 minutos.</li>
+            </ol>
+          </details>
+        </div>
+      </div>
+    </article>
 
+    <!-- Receita 2 — Cookie -->
+    <article class="receita-card receita-ancora" id="cookie" data-categoria="chocolate">
+      <span class="card-badge">02 — Chocolate</span>
+      <div class="card-body">
+        <h2>Cookie Caseiro</h2>
+        <p class="descricao">Cookie crocante por fora, macio por dentro, com bastante gota de chocolate.</p>
+        <div class="accordion">
+          <details class="accordion-item">
+            <summary>Ingredientes</summary>
+            <ul>
+              <li>3 ovos</li>
+              <li>360 g de açúcar</li>
+              <li>250 g de margarina derretida</li>
+              <li>2 xícaras de farinha de trigo</li>
+              <li>150 g de gotas de chocolate</li>
+            </ul>
+          </details>
+          <details class="accordion-item">
+            <summary>Modo de preparo</summary>
+            <ol>
+              <li>Misture os ovos com o açúcar até obter uma massa homogênea.</li>
+              <li>Adicione a margarina derretida e misture bem.</li>
+              <li>Incorpore a farinha com uma espátula, sem bater.</li>
+              <li>Acrescente as gotas de chocolate e misture delicadamente.</li>
+              <li>Modele bolinhas, coloque na forma e asse em forno a 200 °C até dourar.</li>
+            </ol>
+          </details>
+        </div>
+      </div>
+    </article>
 
+    <!-- Receita 3 — Mousse de Maracujá -->
+    <article class="receita-card receita-ancora" id="mousse" data-categoria="fruta">
+      <span class="card-badge">03 — Frutas</span>
+      <div class="card-body">
+        <h2>Mousse de Maracujá</h2>
+        <p class="descricao">Uma sobremesa deliciosa, fácil e refrescante. Pronta em minutos, só precisa gelar.</p>
+        <div class="accordion">
+          <details class="accordion-item">
+            <summary>Ingredientes</summary>
+            <ul>
+              <li>1 lata de leite condensado</li>
+              <li>1 lata de creme de leite</li>
+              <li>1 lata de suco de maracujá concentrado</li>
+              <li>½ xícara de água</li>
+            </ul>
+          </details>
+          <details class="accordion-item">
+            <summary>Modo de preparo</summary>
+            <ol>
+              <li>No liquidificador, bata o leite condensado, o creme de leite e o suco de maracujá até ficar homogêneo.</li>
+              <li>Se estiver muito denso, adicione mais água e bata por mais alguns segundos.</li>
+              <li>Despeje em taças individuais e leve à geladeira por cerca de 4 horas.</li>
+              <li>Sirva bem gelado. Bom apetite!</li>
+            </ol>
+          </details>
+        </div>
+      </div>
+    </article>
 
+  </div>
 
+  <script src="script.js"></script>
+  <script>
+    function filtrar(categoria, btn) {
+      // atualiza botões
+      document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('ativo'));
+      btn.classList.add('ativo');
 
-  
-
-    <script src="script.js"></script>
+      // mostra/oculta cards
+      document.querySelectorAll('.receita-card').forEach(card => {
+        const match = categoria === 'todos' || card.dataset.categoria === categoria;
+        card.style.display = match ? 'flex' : 'none';
+      });
+    }
+  </script>
 </body>
 </html>
