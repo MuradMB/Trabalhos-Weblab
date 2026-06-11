@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-            <div id="loading">
+
+  <div id="loading">
     <div class="loading-spinner"></div>
     <p class="loading-texto">Carregando...</p>
   </div>
@@ -16,20 +17,64 @@
     <div class="nav-logo">Minha Marca</div>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
       <li><a href="receitas.html">Projetos</a></li>
-      <li><a href="contato.html" >Contatos</a></li>
-      <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Alternar tema">
-  <span class="theme-toggle-icon">🌙</span>
-</button></li>
+      <li><a href="contato.html">Contatos</a></li>
+      <li>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Alternar tema">
+          <span class="theme-toggle-icon">🌙</span>
+        </button>
+      </li>
     </ul>
   </nav>
 
+  <section class="sobre-hero">
+    <h1>Sobre mim</h1>
+    <p>Desenvolvedor apaixonado por criar experiências digitais com atenção aos detalhes, bom design e código limpo.</p>
+  </section>
 
+  <div class="sobre-section">
 
+    <div class="sobre-bloco">
+      <div class="sobre-bloco-icone">👤</div>
+      <div class="sobre-bloco-texto">
+        <h2>Quem sou</h2>
+        <p>Meu nome é [Seu Nome]. Sou desenvolvedor web com foco em criar interfaces funcionais e visualmente agradáveis. Gosto de projetos que combinam boa estética com usabilidade real, e estou sempre aprendendo novas tecnologias.</p>
+      </div>
+    </div>
 
+    <div class="sobre-bloco">
+      <div class="sobre-bloco-icone">🎯</div>
+      <div class="sobre-bloco-texto">
+        <h2>Missão</h2>
+        <p>Transformar ideias em produtos digitais que fazem sentido para quem usa. Cada projeto começa com uma boa conversa sobre o problema real a ser resolvido, e termina com algo que funciona bem e tem cara própria.</p>
+      </div>
+    </div>
 
-  
-    <script src="script.js"></script>
+    <div class="sobre-bloco">
+      <div class="sobre-bloco-icone">🚀</div>
+      <div class="sobre-bloco-texto">
+        <h2>Trajetória</h2>
+        <p>Comecei desenvolvendo pequenos projetos por curiosidade e, ao longo do tempo, fui evoluindo para criações mais complexas. Hoje trabalho com HTML, CSS e JavaScript no front-end, sempre focado em performance e experiência do usuário.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sobre-habilidades">
+    <h2>Habilidades</h2>
+    <div class="habilidades-grid">
+      <span class="habilidade-tag">HTML5</span>
+      <span class="habilidade-tag">CSS3</span>
+      <span class="habilidade-tag">JavaScript</span>
+      <span class="habilidade-tag">Design Responsivo</span>
+      <span class="habilidade-tag">UI / UX</span>
+      <span class="habilidade-tag">Git & GitHub</span>
+      <span class="habilidade-tag">Acessibilidade Web</span>
+      <span class="habilidade-tag">Performance</span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

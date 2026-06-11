@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contato</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato</title>
+  <link rel="stylesheet" href="style.css">
+  
 </head>
 <body>
-    <div id="loading">
+
+  <div id="loading">
     <div class="loading-spinner"></div>
     <p class="loading-texto">Carregando...</p>
   </div>
@@ -18,18 +20,107 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="sobre.html">Sobre</a></li>
       <li><a href="receitas.html">Projetos</a></li>
-      <li><a href="contato.html" >Contatos</a></li>
-      <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Alternar tema">
-  <span class="theme-toggle-icon">🌙</span>
-</button></li>
+      <li><a href="contato.html">Contatos</a></li>
+      <li>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Alternar tema">
+          <span class="theme-toggle-icon">🌙</span>
+        </button>
+      </li>
     </ul>
   </nav>
 
+  <section class="contato-hero">
+    <h1>Contato</h1>
+    <p>Tem um projeto em mente ou quer bater um papo? Me manda uma mensagem!</p>
+  </section>
 
+  <div class="contato-wrapper">
 
+    <!-- Info lateral -->
+    <div class="contato-info">
+      <div class="info-item">
+        <div class="info-icone">📧</div>
+        <div class="info-texto">
+          <span>E-mail</span>
+          <p>seuemail@email.com</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icone">📍</div>
+        <div class="info-texto">
+          <span>Localização</span>
+          <p>Rio Grande do Sul, Brasil</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icone">💼</div>
+        <div class="info-texto">
+          <span>LinkedIn</span>
+          <p>linkedin.com/in/seuperfil</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icone">🐙</div>
+        <div class="info-texto">
+          <span>GitHub</span>
+          <p>github.com/seuusuario</p>
+        </div>
+      </div>
+    </div>
 
+    <!-- Formulário -->
+    <div class="contato-form">
+      <div class="form-linha">
+        <div class="form-grupo">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" placeholder="Seu nome">
+        </div>
+        <div class="form-grupo">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" placeholder="seu@email.com">
+        </div>
+      </div>
+      <div class="form-grupo">
+        <label for="assunto">Assunto</label>
+        <input type="text" id="assunto" placeholder="Sobre o que é?">
+      </div>
+      <div class="form-grupo">
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" rows="6" placeholder="Escreva sua mensagem aqui..."></textarea>
+      </div>
+      <button class="btn-enviar" onclick="enviarMensagem()">
+        <span>Enviar mensagem</span>
+      </button>
+      <div class="form-feedback" id="feedback">
+        ✓ Mensagem enviada com sucesso! Entrarei em contato em breve.
+      </div>
+    </div>
 
-  
-    <script src="script.js"></script>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    function enviarMensagem() {
+      const nome = document.getElementById('nome').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const mensagem = document.getElementById('mensagem').value.trim();
+
+      if (!nome || !email || !mensagem) {
+        alert('Por favor, preencha nome, e-mail e mensagem.');
+        return;
+      }
+
+      const feedback = document.getElementById('feedback');
+      feedback.style.display = 'block';
+
+      // Limpa os campos após envio
+      document.getElementById('nome').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('assunto').value = '';
+      document.getElementById('mensagem').value = '';
+
+      setTimeout(() => { feedback.style.display = 'none'; }, 5000);
+    }
+  </script>
 </body>
 </html>
