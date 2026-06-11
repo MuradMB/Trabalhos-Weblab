@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Site</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="loading">
+    <div class="loading-spinner"></div>
+    <p class="loading-texto">Carregando...</p>
+  </div>
+
+  <nav class="navbar">
+    <div class="nav-logo">Minha Marca</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="receitas.html">Projetos</a></li>
+      <li><a href="contato.html" >Contatos</a></li>
+      <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Alternar tema">
+  <span class="theme-toggle-icon">🌙</span>
+</button></li>
+    </ul>
+  </nav>
+
+  <div class="carrossel-wrapper">
+    <div class="carrossel">
+      <div class="carrossel-track" id="track">
+
+        <div class="slide">
+          <span class="slide-tag">01 — Introdução</span>
+          <h2 class="slide-title">Bem-vindo ao nosso projeto</h2>
+          <p class="slide-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+          <a href="#" class="slide-link"><span>Saiba Mais</span></a>
+        </div>
+
+        <div class="slide">
+          <span class="slide-tag">02 — Sobre</span>
+          <h2 class="slide-title">Conheça nossa história</h2>
+          <p class="slide-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
+          <a href="#" class="slide-link"><span>Saiba Mais</span></a>
+        </div>
+
+        <div class="slide">
+          <span class="slide-tag">03 — Serviços</span>
+          <h2 class="slide-title">O que oferecemos</h2>
+          <p class="slide-text">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit.</p>
+          <a href="#" class="slide-link"><span>Saiba Mais</span></a>
+        </div>
+
+        <div class="slide">
+          <span class="slide-tag">04 — Contato</span>
+          <h2 class="slide-title">Fale conosco</h2>
+          <p class="slide-text">Nam libero tempore cum soluta nobis eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus.</p>
+          <a href="#" class="slide-link"><span>Saiba Mais</span></a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="carrossel-controles">
+      <div class="carrossel-setas">
+        <button class="seta" id="prev" aria-label="Anterior">&#8592;</button>
+        <button class="seta" id="next" aria-label="Próximo">&#8594;</button>
+      </div>
+      <div class="indicadores" id="dots"></div>
+      <span class="contador" id="contador">01 / 04</span>
+    </div>
+  </div>
+
+  <main class="container">
+
+    <article class="caixa">
+      <h2>Teste</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <a href="#" class="caixa-botao"><span>Saiba Mais</span></a>
+    </article>
+
+    <article class="caixa">
+      <h2>Teste</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <a href="#" class="caixa-botao"><span>Saiba Mais</span></a>
+    </article>
+
+    <article class="caixa">
+      <h2>Teste</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <a href="#" class="caixa-botao"><span>Saiba Mais</span></a>
+    </article>
+
+    <article class="caixa">
+      <h2>Teste</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <a href="#" class="caixa-botao"><span>Saiba Mais</span></a>
+    </article>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
